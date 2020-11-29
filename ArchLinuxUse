@@ -1,0 +1,11 @@
+
+1->>Install fish shell
+		pacman -S fish
+	
+	list all shell avaliable
+		chsh -l
+	
+	change current user shell
+		chsh -s /bin/fish
+
+	and enjoy it!!!
