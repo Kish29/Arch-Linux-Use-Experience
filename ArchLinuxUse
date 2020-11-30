@@ -9,3 +9,8 @@
 		chsh -s /bin/fish
 
 	and enjoy it!!!
+
+2->>Change I3-wm font style
+	vim ~/.config/i3/config
+	font pango:Monaco Regular 8
+	fonts you can use in $(fc-list)
