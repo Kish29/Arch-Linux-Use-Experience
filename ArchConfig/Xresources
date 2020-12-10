@@ -1,0 +1,4 @@
+xterm*faceName : Monaco:antialias=True:style=Regular 
+xterm*faceNameDoublesize: WenQuanYi Zen Hei Mono:antialias=True:style=Regular
+xterm*background: #222222
+xterm*foreground: white

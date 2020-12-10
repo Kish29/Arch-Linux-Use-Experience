@@ -51,9 +51,7 @@ unset MANPATH
 
 # export JAVA_HOME=/usr/local/jdk/jdk-15
 # export CLASSPATH=.:$JAVA_HOME/lib
-# export PATH=$PATH:$JAVA_HOME/bin
-
-xrandr --newmode "1920x1080_60.00"  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
-xrandr --addmode Virtual-1 "1920x1080_60.00"
-# xrandr --output Virtual-1 "1920x1080_60.00"
-xrandr -s "1920x1080_60.00"
+# EXPORT PATH=$PATH:$JAVA_HOME/bin
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
