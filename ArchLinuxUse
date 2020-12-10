@@ -57,3 +57,8 @@
 		iptables -A INPUT -p tcp --dport 5555 -j ACCEPT
 		iptables -A OUTPUT -p tcp --sport 5555 -j ACCEPT
 		
+6->>Change Fish shell theme
+	fish_config
+	
+	execute bash script
+	use 'bash' preffix explicit

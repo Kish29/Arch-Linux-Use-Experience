@@ -13,6 +13,9 @@
 #   ...
 # end
 
+alias xcp='xcp -g'
+alias xmv='xmv -g'
+
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS="@im=fcitx"
