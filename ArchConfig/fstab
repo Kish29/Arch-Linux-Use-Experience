@@ -1,0 +1,16 @@
+# Static information about the filesystems.
+# See fstab(5) for details.
+
+# <file system> <dir> <type> <options> <dump> <pass>
+# /dev/sda2
+UUID=30c4a74b-d52d-4edc-af68-36033687ca20	/         	ext4      	rw,relatime	0 1
+
+# /dev/sda1
+UUID=2A49-9537      	/boot/EFI 	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro	0 2
+
+# /dev/sda3
+UUID=e5fce3fd-b3dc-4c50-a195-400516744ffd	none      	swap      	defaults  	0 0
+
+# /dev/sda4
+UUID=baa29a73-8325-46f3-bc0f-8fe7b43325de  /data 		ext4 		defaults	0 2
+# the first 0 indicates that system do not neet to scan this disk when boot, and the second 1 indicates that root '/' should be 1, and other volumn should be 2

@@ -43,6 +43,11 @@
 		docker rmi image_id
 	show all process:
 		docker ps -a
+	change docker image or package save path
+	
+	vim /usr/lib/systemd/system/docker/docker.service
+
+	add --graph=/data/docker
 	
 5->>Use iptable
 	show port status:
