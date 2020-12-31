@@ -115,7 +115,12 @@ syntax on
 set nu
 set tabstop=4
 set nocompatible
+set softtabstop=4
+set shiftwidth=4
 set incsearch
+" 设置自动缩进，即按下回车符后自动下一行缩进 
+set autoindent
+set encoding=utf-8
 
 if &term != "linux"
 	set termguicolors
@@ -128,3 +133,4 @@ set laststatus=2
 
 let g:lightline = {'colorscheme': 'onedark',}
 let g:airline = 'onedark'
+

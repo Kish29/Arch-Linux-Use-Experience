@@ -1,0 +1,99 @@
+
+1->>Install fish shell
+		pacman -S fish
+	
+	list all shell avaliable
+		chsh -l
+	
+	change current user shell
+		chsh -s /bin/fish
+
+	and enjoy it!!!
+
+2->>Change I3-wm font style
+	vim ~/.config/i3/config
+	font pango:Monaco Regular 8
+	fonts you can use in $(fc-list)
+
+3->>Install MariaDB
+	pacman -S mariadb
+	cd bin
+	mariadb_install_db --user=mysql --basedir=/usr/mysql --datadir=/var/lib/mysql <- you can modify it
+	systemctl start mysqld
+	mysqladmin -u root passowrd 'passwd'
+	mysql -u root -proot
+
+4->>Docker Usage
+	expose remote connection:
+		vim /lib/systemd/system/docker.service
+		add -H tcp://0.0.0.0:2375 to 'ExecStart'
+		systemctl restart docker
+	pull image:
+		docker pull mysql:latest
+		docker pull openjdk:latest
+	run:
+		docker run -d -p local_port:container_port id
+	stop:
+		docker stop id
+	interact:
+		docker exec -it id bash(-i -> interact -t -> shell type)
+	docker remove container
+		docker rm id
+	docker remove image:
+		docker rmi image_id
+	show all process:
+		docker ps -a
+	change docker image or package save path
+	
+	vim /usr/lib/systemd/system/docker/docker.service
+
+	add --graph=/data/docker
+	
+5->>Use iptable
+
+	show port status:
+		iptables -L -n
+	close all type port:
+		iptables -P INPUT DROP
+		iptables -P OUTPUT DROP
+		iptables -P FORWARD DROP
+	save rules:
+		iptables-save > /etc/iptabless/iptabless.rules
+	open port:
+		iptables -A INPUT -p tcp --dport 5555 -j ACCEPT
+		iptables -A OUTPUT -p tcp --sport 5555 -j ACCEPT
+		
+6->>Change Fish shell theme
+	fish_config
+	
+	execute bash script
+	use 'bash' preffix explicit
+
+7->>使用peda来做gdb调试插件
+
+	pacman -S peda
+	在 /etc/gdb/gdbinit中添加
+	source /usr/share/peda/peda.py
+	修改peda的颜色：
+		由于黑色背景和blue显示不清楚，将blue和purple的颜色号对调一下
+		vim /usr/share/peda/lib/utils.py
+		将blue改成35就行
+
+8->> linux下自定义动态链接库要注意的问题
+
+	如：自定义动态链接库sqrt
+		需要：sqrt.h sqrt.cpp
+	生成动态链接库：
+		g++ -fPIC -shared -o libsqrt.so sqrt.cpp
+		或者分步：
+		g++ -fPIC -c sqrt.cpp
+		g++ -shared -o libsqrt.so sqrt.o
+	注意：格式必须是libXXX.so
+
+	然后使用：
+		在cpp文件中添加.h
+		如： main.cpp
+			#include "sqrt.h"
+		编译：
+			g++ -o main main.cpp -L .so文件目录 -lsqrt
+	注意，使用的时候，-lsqrt就不再需要加lib前缀了，如-llibsqrt是会报错的

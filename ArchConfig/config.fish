@@ -19,3 +19,9 @@ alias mv='mv -g'
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS="@im=fcitx"
+
+# 初始化 coredump 文件生成
+echo "core_dump_%e_%p_%t" > /proc/sys/kernel/core_pattern
+
+iptables -A OUTPUT -p tcp --sport 2375 -j ACCEPT
+iptables -A INPUT -p tcp --dport 2375 -j ACCEPT
